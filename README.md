@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 #Blank AWS Lambda Bot
 #rm -rf node_module/botfiles && npm install /YOURPATH/botfiles
 ##Instructions
@@ -62,3 +63,7 @@ You can also set up your bot to run on a schedule using the "Event Sources" tab 
 
 ##Thank Yous
 Thanks to [Darius Kazemi](https://github.com/dariusk) for the wordfilter module and for the .pick function. Thanks to [Thoughtworks](https://github.com/ThoughtWorksStudios) for the wonderful [node-aws-lambda](https://github.com/ThoughtWorksStudios/node-aws-lambda) module. Thanks also to [Allison Parrish](https://twitter.com/aparrish) and David Celis for reviewing; all errors remain the exclusive property & reponsibility of the author. :-)
+=======
+# lukennethbot
+Luke Bot
+>>>>>>> 6c510d547876b8eaa5dfddfd97358fad22afcb15
