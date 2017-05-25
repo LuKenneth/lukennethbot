@@ -4,14 +4,18 @@ from tweepy import Stream
 from tweepy.streaming import StreamListener
 import time
 import json
+import ConfigParser
 
-consumer_key = '8BweTt1eTRnHPYFpBxYxiA1n7'
-consumer_secret = 'HdNaf3pBRddlcCjVyhNeZqk7nvefUJKdqvWCIyW89eiWr0019w'
-access_token = '866308102534176768-5OjIWdbwFk4uNcGlOADXCK8Fr2BPzxU'
-access_token_secret = 'fthxy4IR9yBeuckDdrQhHhfSia52tf1OigzOoY8ohWifi'
-account_screen_name = 'lukennethbot'
-stream_rule = '@lukennethbot'
-account_user_id = '866308102534176768'
+config = ConfigParser.ConfigParser()
+config.read('twitterKeys.ini')
+
+consumer_key = config.get('apikey', 'key')
+consumer_secret = config.get('apikey', 'secret')
+access_token = config.get('token', 'token')
+access_token_secret = config.get('token', 'secret')
+account_screen_name = config.get('app', 'account_screen_name')
+stream_rule = config.get('app', 'rule')
+account_user_id = config.get('app', 'account_user_id')
 
 auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
 auth.set_access_token(access_token, access_token_secret)
@@ -67,6 +71,7 @@ class ReplyToTweet(StreamListener):
 
 streamListener = ReplyToTweet()
 twitterStream = Stream(auth, streamListener)
+
 twitterStream.userstream(_with='user')
 
 # public_tweets = api.home_timeline()
