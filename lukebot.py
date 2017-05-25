@@ -22,17 +22,6 @@ auth.set_access_token(access_token, access_token_secret)
 
 api = tweepy.API(auth)
 
-class StdOutListener(StreamListener):
-    """ A listener handles tweets that are received from the stream.
-    This is a basic listener that just prints received tweets to stdout.
-    """
-    def on_data(self, data):
-        
-        return True
-
-    def on_error(self, status):
-        print(status)
-
 class ReplyToTweet(StreamListener):
 
     def on_data(self, data):
@@ -68,18 +57,12 @@ class ReplyToTweet(StreamListener):
     def on_error(self, status):
         print status
 
+for follower in tweepy.Cursor(api.followers).items():
+	print(follower.screen_name)
 
 streamListener = ReplyToTweet()
 twitterStream = Stream(auth, streamListener)
-
 twitterStream.userstream(_with='user')
 
-# public_tweets = api.home_timeline()
-# for tweet in public_tweets:
-# 	print tweet.text
-
-# l = StdOutListener()
-# stream = Stream(auth, l)
-# stream.filter(track=['@LuKenneth_'])
 
 
