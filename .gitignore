@@ -2,5 +2,7 @@
 twitterKeys.ini
 lukebot.pem
 chatlog.txt
+tweets.txt
+usedTweets.txt
 #OS junk files
 *.DS_Store
