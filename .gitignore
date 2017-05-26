@@ -1,6 +1,6 @@
 #config
 twitterKeys.ini
 lukebot.pem
-
+chatlog.txt
 #OS junk files
 *.DS_Store
